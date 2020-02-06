@@ -1,0 +1,44 @@
+body{
+    margin:0px;
+    overflow-x: hidden;
+}
+#navBar{
+    height: 20vh;
+    width: 100vw;
+    background-color: green;
+}
+#items{
+    min-height:80vh;
+    width:100vw;
+    background-color: rebeccapurple;
+}
+
+#items{
+    padding:10%;
+    padding-top:5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.card{
+    width:20%;
+    height: 50vh;
+    background-color: green;
+    margin-bottom:10px;
+    margin-right:60px;
+    padding:10px;
+}   
+
+.card img{
+    width:100%;
+    max-height:60%;
+}
+
+.card h2{
+    color: red;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-top: -10%;
+    padding-left:5%;
+}
