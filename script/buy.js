@@ -17,7 +17,7 @@ function getData(){
 
 function makeCards(title,image,description,price){
     pageContent.innerHTML += `
-        <div class ="card" onclick="window.location.href = '${title}.html'">
+        <div class ="card" onclick="window.location.href = 'product_html/${title}.html'">
             <img src="${image}" alt="">
             <h2>$${price}</h2>
             <h4>${title}</h4>
