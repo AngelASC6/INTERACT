@@ -8,3 +8,7 @@ body{
     height: 400px;
     background-color: rebeccapurple;
 }
+
+title{
+    position: fixed;
+ }
