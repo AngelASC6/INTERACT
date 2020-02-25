@@ -3,6 +3,7 @@ let image = document.getElementById("imageContainer")
 let price = document.getElementById("price")
 let description = document.getElementById("description")
 let button = document.getElementById("buyButton")
+let title = document.getElementById("title")
 let itemArray
 let itemString
 let finalArray
@@ -17,7 +18,7 @@ function displayContent(response){
     console.log(response.title)
     itemRefId = response.id
 
-    image.style.backgroundImage =`url(${response.image})`
+    image.style.backgroundImage =`url(${response.image}) alt="${response.title}"`
     price.innerHTML = "$"+response.price
     description.innerHTML = response.description
 }
