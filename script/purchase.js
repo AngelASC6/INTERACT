@@ -5,4 +5,8 @@ itemArray.pop()
 
 
 
-itemIntro.innerHTML = `${itemArray.length} Items in the cart`
+itemIntro.innerHTML = `${itemArray.length} <span id="itemWord" onclick="dropDown()">Items</span> in the cart`
+
+function dropDown() {
+    console.log("hey")
+}
