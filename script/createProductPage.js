@@ -28,11 +28,10 @@ button.onclick = function() {
     if (typeof(Storage) !== "undefined") {
         //adds item to array and returns string as an array
         sessionStorage.itemRef += itemRefId + ","
-        itemString = sessionStorage.itemRef
-        itemArray = itemString.split(",")
-        itemArray.pop()
+
         console.log(itemArray)
     } else {
         // Sorry! No Web Storage support..
       }
+      location.href = "../purchase.html"
 }
