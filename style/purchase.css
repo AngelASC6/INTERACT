@@ -8,4 +8,12 @@ body{
     background-color: green;
 }
 
+#billingInformation{
+    display: flex;
+    flex-direction: column;
+}
 
+#billingInformation input{
+    width:10%;
+    margin:10px;
+}

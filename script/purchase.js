@@ -10,3 +10,4 @@ itemIntro.innerHTML = `${itemArray.length} <span id="itemWord" onclick="dropDown
 function dropDown() {
     console.log("hey")
 }
+
