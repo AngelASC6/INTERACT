@@ -3,6 +3,7 @@ let image = document.getElementById("imageContainer")
 let price = document.getElementById("price")
 let description = document.getElementById("description")
 let button = document.getElementById("buyButton")
+let title = document.getElementById("title")
 let itemArray
 let itemString
 let finalArray

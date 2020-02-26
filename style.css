@@ -72,3 +72,8 @@ img{
     color: whitesmoke;
     text-shadow: 2px 2px 8px black;
 }
+img {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
