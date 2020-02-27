@@ -55,6 +55,9 @@ body{
 img{
     width: inherit;
     height: inherit;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 #openButton{
@@ -71,9 +74,4 @@ img{
     font-size: 90px;
     color: whitesmoke;
     text-shadow: 2px 2px 8px black;
-}
-img {
-  color: white;
-  text-align: center;
-  margin-bottom: 20px;
 }

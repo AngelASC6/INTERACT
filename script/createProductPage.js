@@ -18,7 +18,8 @@ function displayContent(response){
     console.log(response.title)
     itemRefId = response.id
 
-    image.style.backgroundImage =`url(${response.image})`
+ //   image.style.backgroundImage =`url(${response.image}) title=(${response.title})`//
+ image.innerHTML = `<img src = "${response.image}" alt = '(${response.title})'>`
     price.innerHTML = "$"+response.price
     description.innerHTML = response.description
 }
