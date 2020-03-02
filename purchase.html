@@ -28,11 +28,20 @@
                 <label for="cardNumber">Card Number:</label>
                 <input type="number" id="cardNumber" name="cardNumber"><br><br>
             </div>
-            <label for="sameBox">Same as billing adress:</label><input id="sameBox"type="checkbox">
-            <label for="diffrentBox">Diffrent than billing adress</label><input id="diffrentBox" type="checkbox">
+            <label for="sameBox">Same as billing adress:</label><input onclick="sameClick()" id="sameBox"type="checkbox">
+            <label for="diffrentBox">Diffrent than billing adress</label><input onclick="diffrentClick()" id="diffrentBox" type="checkbox">
             
-            <div id="ShippingInformation">
-
+            <div id="shippingInformation">
+                <h2>shipping Information</h2>
+                <label for="shippingCountry">Country:</label>
+                <input id="shippingCountry" type="text">
+                <label for="shippingFullName">First and Last Name:</label>
+                <input type="text" name="shippingFullName" id="shippingFullName">
+                <label for="shippingadress" >Adress:</label>
+                <input id="shippingAdress1"type="text">
+                <input id="shippingAdress2"type="text">
+                <label for="shippingZipcode">Zipcode:</label>
+                <input type="number" name="" id="shippingZipcode">
             </div>
         </div>
 
