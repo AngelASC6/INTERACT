@@ -12,6 +12,7 @@ let billingAdressBox1 = document.getElementById("billingAdress1")
 let billingAdressBox2 = document.getElementById("billingAdress2")
 let billingZipcodeBox = document.getElementById("billingZipcode")
 let cardNumber = document.getElementById("cardNumber")
+let cartDiv = document.getElementById("cartItems")
 
 let shippingCountryBox = document.getElementById("shippingCountry")
 let shippingFullNameBox = document.getElementById("shippingFullName")
@@ -26,9 +27,28 @@ let diffrentBox = document.getElementById("diffrentBox")
 
 itemIntro.innerHTML = `${itemArray.length} <span id="itemWord" onclick="dropDown()">Items</span> in the cart`
 diffrentBox.checked = true
-function dropDown() {
-    console.log("hey")
-    pushToDatabase()
+
+//goes into firebase
+function queryDatabase(collectionName,refId,code) {
+    db.collection(collectionName).doc(refId).get().then(code);   
+}
+
+for(let i=0; i<itemArray.length;i++){
+    console.log(i)
+    console.log(itemArray[i])
+    queryDatabase('items',itemArray[i],function(response){
+        data = response.data()
+        addCartItemsToPage(data)
+        })
+}
+
+
+//makes the dropdown with the cart items appear
+function addCartItemsToPage(data){
+    console.log(data)
+}
+
+
 }
 
 function pushToDatabase(){
@@ -82,3 +102,4 @@ function sameClick(){
     diffrentBox.checked = false
     shippingContent.style.display = "none"
 }
+

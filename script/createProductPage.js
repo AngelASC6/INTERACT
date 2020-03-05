@@ -4,7 +4,6 @@ let price = document.getElementById("price")
 let description = document.getElementById("description")
 let button = document.getElementById("buyButton")
 let title = document.getElementById("title")
-let itemArray
 let itemString
 let finalArray
 let itemRefId
@@ -29,11 +28,19 @@ function displayContent(response){
 button.onclick = function() {
     if (typeof(Storage) !== "undefined") {
         //adds item to array and returns string as an array
-        sessionStorage.itemRef += itemRefId + ","
+        sessionStorage.itemRef +=  itemRefId + ","
 
-        console.log(itemArray)
+        console.log(sessionStorage.itemRef)
     } else {
         // Sorry! No Web Storage support..
       }
-      location.href = "../purchase.html"
+    if(sessionStorage.itemRef[0] == "u" && sessionStorage.itemRef[1] == "n" && sessionStorage.itemRef[2] == "d"){
+        let storage = sessionStorage.itemRef
+        let spliced = storage.slice(9)
+        sessionStorage.itemRef = spliced
+        console.log(sessionStorage.itemRef)
+
+    }
+    location.href = "../purchase.html"
+
 }
