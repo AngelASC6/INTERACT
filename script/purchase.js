@@ -25,7 +25,7 @@ let sameBox = document.getElementById("sameBox")
 let diffrentBox = document.getElementById("diffrentBox")
 
 
-itemIntro.innerHTML = `${itemArray.length} <span id="itemWord" onclick="dropDown()">Items</span> in the cart`
+itemIntro.innerHTML = `${itemArray.length} <span id="itemWord">Items</span> in the cart`
 diffrentBox.checked = true
 
 //goes into firebase
@@ -46,10 +46,13 @@ for(let i=0; i<itemArray.length;i++){
 //makes the dropdown with the cart items appear
 function addCartItemsToPage(data){
     console.log(data)
+        cartDiv.innerHTML += 
+        `<div class='cartItem' id="${data.title} "></div>
+        <div class="cartItem" id="${data.title + "Price"}"></div><br>`
 }
 
 
-}
+
 
 function pushToDatabase(){
     if(diffrentBox.checked){
