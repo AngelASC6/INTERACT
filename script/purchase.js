@@ -47,8 +47,10 @@ for(let i=0; i<itemArray.length;i++){
 function addCartItemsToPage(data){
     console.log(data)
         cartDiv.innerHTML += 
-        `<div class='cartItem' id="${data.title} "></div>
-        <div class="cartItem" id="${data.title + "Price"}"></div><br>`
+        `<div class="itemCard">
+            <div class='cartItem' id="${data.title} "><h3>${data.title}</h3></div>
+            <div class="cartItem" id="${data.title + "Price"}"><h3>$${data.price}</h3></div><br>
+        </div>`
 }
 
 

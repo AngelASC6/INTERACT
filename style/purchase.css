@@ -38,7 +38,23 @@ body{
     height: 20vh;
 }
 
-#cartItems{
+
+#cartContainer{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.itemCard{
+    width:50%;
+    height:auto;
+    display:flex;
+    border:black 1px solid;
+    border-bottom: 0px;
+}
+#cartItems{
+    justify-self: center;
+}
+#itemNumber{
+    text-align: center;
+}

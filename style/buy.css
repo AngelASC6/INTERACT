@@ -10,7 +10,7 @@ body{
 #items{
     min-height:80vh;
     width:100vw;
-    background-color: #FCFFFD;    
+    background-color: #FCFFFD; 
     padding-top:5%;
     display: flex;
     flex-wrap: wrap;
@@ -25,9 +25,17 @@ body{
     width:35%;
     max-height: 90vh;
     background-color: #E8E6DA;
+    border: 1px solid gray;
+    box-shadow: 0 0 10px #000;
     margin-right:2%;
     padding:1%;
 }   
+
+.card:hover{
+    cursor: pointer;
+    box-shadow: 0 0 20px #000;
+    transition: .5s;
+}
 
 .card img{
     width:100%;
