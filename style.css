@@ -81,4 +81,25 @@ img{
   top: 90%;
   left:48%;
 }
+#profitDiv{
+  width:100%;
+  height: 30%;
+}
+#iconBackground{
+  width:35vh;
+  height: 35vh;
+  background-color: #CAD8DE;
+  border-radius: 50%;
+  position: absolute;
+  top:127%;
+  left:15.7%;
+}
 
+.fa-dollar-sign{
+  position: absolute;
+  left:20%;
+  top:130%;
+}
+#contentDivs{
+  display: flex;
+}
