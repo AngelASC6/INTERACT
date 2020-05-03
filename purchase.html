@@ -5,43 +5,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="style/purchase.css">
-    </head>
+        <link href="https://fonts.googleapis.com/css?family=Jost:300i&display=swap" rel="stylesheet">    </head>
     <body>
-        <div id="header"></div>
         <div id="content">
             <div id="cartContainer">
                 <!-- Holds the number of items in cart and displays the items in a list -->
                 <h1 id="itemNumber"></h1>
-                <div id="cartItems"></div>
+                <div id="cartItems">
+                    <div class="itemCard" id="cartLabels">                 
+                    <div class="cartItem" style="border: none;"><h4>Item</h4></div>
+                    <div class="cartItem" style="border: none"><h4>Quantity</h4></div>
+                    <div class="cartItem" style="border:none"><h4>Price</h4></div></div>
+                </div>
             </div>
             <div id="billingInformation">
-                <h2>Billing Info</h2>
-                <label for="billingCountry">Country:</label>
-                <input id="billingCountry" type="text">
-                <label for="billingFullName">First and Last Name:</label>
-                <input type="text" name="billingFullName" id="billingFullName">
-                <label for="adress" >Adress:</label>
-                <input id="billingAdress1"type="text">
-                <input id="billingAdress2"type="text">
-                <label for="zipcode">Zipcode:</label>
-                <input type="number" name="" id="billingZipcode">
-                <label for="cardNumber">Card Number:</label>
-                <input type="number" id="cardNumber" name="cardNumber"><br><br>
+                <h2 style="text-align: start; color: orange; font-size:200%;">Billing Info:</h2>
+                <div id="billingContent">
+                    <div><label for="billingCountry">Country:</label> <input id="billingCountry" type="text" placeholder="Ex. United States"></div>
+                    <div><label for="billingFullName">First & Last Name:</label> <input type="text" name="billingFullName" id="billingFullName" placeholder="John Doe"></div>
+                    <div><label for="adress" >Adress:</label>
+                        <input id="billingAdress1"type="text" placeholder="Street Adress">
+                    </div>
+                    <input id="billingAdress2"type="text" placeholder="Apt, Suite, Building">
+                    <div><label for="zipcode">Zipcode:</label><input type="number" name="" id="billingZipcode" placeholder="12345"></div>
+                    <div><label for="cardNumber">Card Number:</label> <input type="number" id="cardNumber" name="cardNumber" placeholder="12345678910"><br><br></div>
+                </div>
             </div>
-            <label for="sameBox">Same as billing adress:</label><input onclick="sameClick()" id="sameBox"type="checkbox">
-            <label for="diffrentBox">Diffrent than billing adress</label><input onclick="diffrentClick()" id="diffrentBox" type="checkbox">
-            
+            <div id="boxes">
+                <label for="sameBox">Same as billing adress:</label><input onclick="sameClick()" id="sameBox"type="radio"><label for="diffrentBox">Diffrent than billing adress</label><input onclick="diffrentClick()" id="diffrentBox" type="radio"></div>
             <div id="shippingInformation">
-                <h2>shipping Information</h2>
-                <label for="shippingCountry">Country:</label>
-                <input id="shippingCountry" type="text">
-                <label for="shippingFullName">First and Last Name:</label>
-                <input type="text" name="shippingFullName" id="shippingFullName">
-                <label for="shippingadress" >Adress:</label>
-                <input id="shippingAdress1"type="text">
-                <input id="shippingAdress2"type="text">
-                <label for="shippingZipcode">Zipcode:</label>
-                <input type="number" name="" id="shippingZipcode">
+                <h2 style="text-align: start; color: orange; font-size:200%;">Shipping Info:</h2>
+                <div id="shippingContent">
+                    <div><label for="shippingCountry">Country:</label><input id="shippingCountry" type="text"></div>
+                    <div><label for="shippingFullName">First and Last Name:</label> <input type="text" name="shippingFullName" id="shippingFullName"></div>
+                    <div><label for="shippingadress" >Adress:</label> <input id="shippingAdress1"type="text"></div>
+                    <input id="shippingAdress2"type="text">
+                    <div><label for="shippingZipcode">Zipcode:</label><input type="number" name="" id="shippingZipcode"></div>
+
+                </div>
             </div>
         </div>
         <input type="button" value="Place Order" onclick="pushToDatabase()">

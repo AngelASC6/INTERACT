@@ -85,14 +85,14 @@ function addCartItemsToPage(data,numberOfOption){
             cartDiv.innerHTML += 
             `<div class="itemCard">
                 <div class='cartItem' id="${data.title} "><h3>${data.title}</h3></div>
-                <div class="cartItem" id="${data.title + "Number"}"><h3>X${numberOfOption}</h3></div>
-                <div class="cartItem" id="${data.title + "Price"}"><h3>$${totalPriceOfItem}</h3></div><br>
+                <div class="cartItem" id="${data.title + "Number"}"><h3>${numberOfOption}</h3></div>
+                <div class="cartItem" id="${data.title + "Price"}"><h3 style="color:maroon;">$${totalPriceOfItem}</h3></div><br>
             </div>`
             if(ran==options.length){
                 cartDiv.innerHTML += `
                 <div class=itemCard>
-                <div class='cartItem' style="width:100%;"></div>
-                <div class='cartItem' style="width:100/3; justify-text:center;"><h3>$${totalPrice}</h3></div>
+                <div class='cartItem' style="width:100%;  border-bottom:1px black solid; padding-left:0px;"></div>
+                <div class='cartItem' style="width:100/3; justify-text:center;  border-bottom:1px black solid;"><h3 style="color:maroon;">$${totalPrice}</h3></div>
                 </div>
                 `
             }
