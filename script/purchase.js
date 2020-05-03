@@ -4,6 +4,7 @@ let itemArray = itemString.split(",")
 let db = firebase.firestore()
 let shippingContent = document.getElementById("shippingInformation")
 let options = ['I7ddGrPK5nqcAMSlgCyf','nTVp45k9ODl1ktDGB2Cu']
+let totalPrice = 0
 
 itemArray.pop()
 //get reference for the textboxes
@@ -42,11 +43,12 @@ function queryDatabase(collectionName,refId,code) {
 //         addCartItemsToPage(data)
 //         })
 // }
-
+let ran = 0
 findCartItemNumbers()
 //Finds the number of items of each type
 function findCartItemNumbers(){
     for(let j=0;j<options.length;j++){
+        console.log("ran " + ran)
         let currentOption = options[j]
         console.log('Current Option ='+currentOption)
         let numberOfOption = 0
@@ -54,7 +56,7 @@ function findCartItemNumbers(){
         for(let k=0;k<itemArray.length;k++){
             console.log('Comparing to ' + itemArray[k])
             if(currentOption == itemArray[k]){
-                numberOfOption += 1
+                numberOfOption ++
             }
             else{
                 console.log("No Match")
@@ -74,16 +76,26 @@ function findCartItemNumbers(){
 //makes the dropdown with the cart items appear
 function addCartItemsToPage(data,numberOfOption){
         console.log("Running queryDatabase")
+        ran ++
         console.log(data.title + data.price)
-        let totalPrice = numberOfOption * data.price
+        let totalPriceOfItem = numberOfOption * data.price
             console.log("Number of the option = " + numberOfOption)
             console.log(data)
+            totalPrice += totalPriceOfItem
             cartDiv.innerHTML += 
             `<div class="itemCard">
                 <div class='cartItem' id="${data.title} "><h3>${data.title}</h3></div>
                 <div class="cartItem" id="${data.title + "Number"}"><h3>X${numberOfOption}</h3></div>
-                <div class="cartItem" id="${data.title + "Price"}"><h3>$${totalPrice}</h3></div><br>
+                <div class="cartItem" id="${data.title + "Price"}"><h3>$${totalPriceOfItem}</h3></div><br>
             </div>`
+            if(ran==options.length){
+                cartDiv.innerHTML += `
+                <div class=itemCard>
+                <div class='cartItem' style="width:100%;"></div>
+                <div class='cartItem' style="width:100/3; justify-text:center;"><h3>$${totalPrice}</h3></div>
+                </div>
+                `
+            }
     }
 
 
