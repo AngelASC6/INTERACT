@@ -61,7 +61,7 @@ img{
 }
 
 #openButton{
-    position: fixed;
+    position: absolute;
     margin-left: 20px;
     color: #FCFFFD;
 }
