@@ -3,6 +3,7 @@ let itemString = sessionStorage.itemRef
 let itemArray = itemString.split(",")
 let db = firebase.firestore()
 let shippingContent = document.getElementById("shippingInformation")
+let options = ['I7ddGrPK5nqcAMSlgCyf','nTVp45k9ODl1ktDGB2Cu']
 
 itemArray.pop()
 //get reference for the textboxes
@@ -33,25 +34,57 @@ function queryDatabase(collectionName,refId,code) {
     db.collection(collectionName).doc(refId).get().then(code);   
 }
 
-for(let i=0; i<itemArray.length;i++){
-    console.log(i)
-    console.log(itemArray[i])
-    queryDatabase('items',itemArray[i],function(response){
-        data = response.data()
-        addCartItemsToPage(data)
-        })
+// for(let i=0; i<itemArray.length;i++){
+//     console.log(i)
+//     console.log(itemArray[i])
+//     queryDatabase('items',itemArray[i],function(response){
+//         data = response.data()
+//         addCartItemsToPage(data)
+//         })
+// }
+
+findCartItemNumbers()
+//Finds the number of items of each type
+function findCartItemNumbers(){
+    for(let j=0;j<options.length;j++){
+        let currentOption = options[j]
+        console.log('Current Option ='+currentOption)
+        let numberOfOption = 0
+        console.log(itemArray)
+        for(let k=0;k<itemArray.length;k++){
+            console.log('Comparing to ' + itemArray[k])
+            if(currentOption == itemArray[k]){
+                numberOfOption += 1
+            }
+            else{
+                console.log("No Match")
+            }
+            console.log(numberOfOption)
+        }
+            if(numberOfOption>0){
+                console.log("number of Options > 0")
+                console.log(currentOption)
+                queryDatabase('items',currentOption,function(response){
+                    data = response.data()
+                    addCartItemsToPage(data,numberOfOption)
+                    }) 
+            }
+    }
 }
-
-
 //makes the dropdown with the cart items appear
-function addCartItemsToPage(data){
-    console.log(data)
-        cartDiv.innerHTML += 
-        `<div class="itemCard">
-            <div class='cartItem' id="${data.title} "><h3>${data.title}</h3></div>
-            <div class="cartItem" id="${data.title + "Price"}"><h3>$${data.price}</h3></div><br>
-        </div>`
-}
+function addCartItemsToPage(data,numberOfOption){
+        console.log("Running queryDatabase")
+        console.log(data.title + data.price)
+        let totalPrice = numberOfOption * data.price
+            console.log("Number of the option = " + numberOfOption)
+            console.log(data)
+            cartDiv.innerHTML += 
+            `<div class="itemCard">
+                <div class='cartItem' id="${data.title} "><h3>${data.title}</h3></div>
+                <div class="cartItem" id="${data.title + "Number"}"><h3>X${numberOfOption}</h3></div>
+                <div class="cartItem" id="${data.title + "Price"}"><h3>$${totalPrice}</h3></div><br>
+            </div>`
+    }
 
 
 
