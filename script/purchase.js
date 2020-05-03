@@ -5,6 +5,8 @@ let db = firebase.firestore()
 let shippingContent = document.getElementById("shippingInformation")
 let options = ['I7ddGrPK5nqcAMSlgCyf','nTVp45k9ODl1ktDGB2Cu']
 let totalPrice = 0
+let body = document.querySelector('body')
+let button = document.getElementById('button')
 
 itemArray.pop()
 //get reference for the textboxes
@@ -132,6 +134,7 @@ function pushToDatabase(){
             "Shipping Zip Code": billingZipcodeBox.value
         })
     }
+    location.replace("buy.html")
 }
 
 //runs when check boxes are clicked
