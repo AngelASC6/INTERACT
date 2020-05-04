@@ -40,11 +40,17 @@ function test(){
 }
 
 function getCartNumber(){
-    let itemArary = sessionStorage.itemRef.split(',')
-    itemArary.pop()
+    let numberOfItems = 0
+
+    if(sessionStorage.itemRef){
+        console.log('greater than 0')
+        let itemArary = sessionStorage.itemRef.split(',')
+        itemArary.pop()
+        numberOfItems = itemArary.length
+    }
     navBar.innerHTML += `
         <div id="cart">
-        <h2 id="cartNumber">${itemArary.length}</h2>
+        <h2 id="cartNumber">${numberOfItems}</h2>
         <i class="fas fa-shopping-cart fa-3x"></i>        
         </div>
     `
