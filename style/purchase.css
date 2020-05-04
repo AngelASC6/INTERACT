@@ -163,14 +163,17 @@ body{
     align-self: center;
     width: 20%;
     margin-top: 5%;
-    background-color: whitesmoke;
-    border:1px solid lightgray;
+    border-radius: 50px;
+    background-color: #ec9706;
+    font-size: 110%;
+    color:white;
+    border:none;
     padding:1%;
-    border-radius: 999px
+    margin-bottom: 2%;
 }
 
 #button:hover{
-    transition: .5s;
-    background-color: #00ff83;
-    box-shadow: 1px 1px 3px;
+    background-color: #c95c0d;
+    transition: .2s;
+    cursor: pointer;
 }

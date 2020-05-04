@@ -1,6 +1,7 @@
 body{
     margin:0px;
-    height:20vh
+    height:100vh;
+    padding-bottom: 5%;
 }
 #imageContainer{
     widows: 100%;
@@ -40,11 +41,34 @@ body{
 #description{
     padding:15px;
     font-size: 20px;
+    padding:3%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 button{
     align-self: center;
-    width:10%;
+    width:100%;
     top:5%;
     margin: 5px;
+    border-radius: 50px;
+    background-color: #ec9706;
+    font-size: 110%;
+    color:white;
+    border:none;
+    padding:1%;
+    margin-bottom: 2%;
+}
+
+button:hover{
+    background-color: #c95c0d;
+    transition: .2s;
+    cursor: pointer;
+
+}
+
+#buttons{
+    display:flex;
+    align-self: center;
+    width:30%;
+    margin-bottom:5%;
 }
