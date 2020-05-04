@@ -1,6 +1,7 @@
 let pageContent =document.getElementById("items")
 let db = firebase.firestore()
 let data
+let navBar = document.getElementById('navBar')
 //gets info from the database
 function queryDatabase(collectionName,refId,code) {
     db.collection(collectionName).doc(refId).get().then(code);   
@@ -38,4 +39,17 @@ function test(){
     })
 }
 
+function getCartNumber(){
+    let itemArary = sessionStorage.itemRef.split(',')
+    itemArary.pop()
+    navBar.innerHTML += `
+        <div id="cart">
+        <h2 id="cartNumber">${itemArary.length}</h2>
+        <i class="fas fa-shopping-cart fa-3x"></i>        
+        </div>
+    `
+}
+
 test()
+
+getCartNumber()

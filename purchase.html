@@ -15,7 +15,7 @@
                     <div class="itemCard" id="cartLabels">                 
                     <div class="cartItem" style="border: none;"><h4>Item</h4></div>
                     <div class="cartItem" style="border: none"><h4>Quantity</h4></div>
-                    <div class="cartItem" style="border:none"><h4>Price</h4></div></div>
+                    <div class="cartItem" style="border:none"><h4>Total Price</h4></div></div>
                 </div>
             </div>
             <div id="billingInformation">
@@ -44,7 +44,10 @@
 
                 </div>
             </div>
-            <input type="button" value="Place Order" onclick="pushToDatabase()" id="button">
+            <div id="buttons">
+                <input type="button" value="Place Order" onclick="pushToDatabase()" class="button">
+                <input type="button" value = "Back" onclick="returnToProducts()" class="button">
+            </div>
         </div>
 
 

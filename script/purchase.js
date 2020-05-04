@@ -84,17 +84,19 @@ function addCartItemsToPage(data,numberOfOption){
             console.log("Number of the option = " + numberOfOption)
             console.log(data)
             totalPrice += totalPriceOfItem
+            let roundedTotal = totalPrice.toFixed(2)
+            console.log(roundedTotal)
             cartDiv.innerHTML += 
             `<div class="itemCard">
                 <div class='cartItem' id="${data.title} "><h3>${data.title}</h3></div>
                 <div class="cartItem" id="${data.title + "Number"}"><h3>${numberOfOption}</h3></div>
-                <div class="cartItem" id="${data.title + "Price"}"><h3 style="color:maroon;">$${totalPriceOfItem}</h3></div><br>
+                <div class="cartItem" id="${data.title + "Price"}"><h3 style="color:maroon;">$${totalPriceOfItem.toFixed(2)}</h3></div><br>
             </div>`
             if(ran==options.length){
                 cartDiv.innerHTML += `
                 <div class=itemCard>
                 <div class='cartItem' style="width:100%;  border-bottom:1px black solid; padding-left:0px;"></div>
-                <div class='cartItem' style="width:100/3; justify-text:center;  border-bottom:1px black solid;"><h3 style="color:maroon;">$${totalPrice}</h3></div>
+                <div class='cartItem' style="width:100/3; justify-text:center;  border-bottom:1px black solid;"><h3 style="color:maroon;">$${roundedTotal}</h3></div>
                 </div>
                 `
             }
@@ -134,6 +136,7 @@ function pushToDatabase(){
             "Shipping Zip Code": billingZipcodeBox.value
         })
     }
+    sessionStorage.clear()
     location.replace("buy.html")
 }
 
@@ -156,3 +159,6 @@ function sameClick(){
     shippingContent.style.display = "none"
 }
 
+function returnToProducts(){
+    location.replace("buy.html")
+}
