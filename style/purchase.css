@@ -51,7 +51,9 @@ body{
 #billingContent  div input:focus{
     outline-width: 0;
     transition: .5s;
-    border-bottom: 2px maroon solid
+    border-bottom: 2px maroon solid;
+    background-color: white;
+    border-left: 0px;
 }
 
 #shippingInformation{
@@ -90,7 +92,8 @@ body{
 #shippingContent  div input:focus{
     outline-width: 0;
     transition: .5s;
-    border-bottom: 2px maroon solid
+    border-bottom: 2px maroon solid;
+    background-color: white;
 }
 #shippingContent div{
     text-align: end;
@@ -183,4 +186,8 @@ body{
     display: flex;
     align-self: center;
     width:30%;
+}
+
+.failMsg{
+    display: none;
 }

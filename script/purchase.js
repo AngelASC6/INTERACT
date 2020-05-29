@@ -7,6 +7,9 @@ let options = ['I7ddGrPK5nqcAMSlgCyf','nTVp45k9ODl1ktDGB2Cu']
 let totalPrice = 0
 let body = document.querySelector('body')
 let button = document.getElementById('button')
+let inputBoxArray = document.getElementsByClassName('inputBox')
+let inputBoxDivArray = document.getElementsByClassName('inputDiv')
+let failMsg = document.getElementsByClassName('failMsg')
 
 itemArray.pop()
 //get reference for the textboxes
@@ -37,14 +40,6 @@ function queryDatabase(collectionName,refId,code) {
     db.collection(collectionName).doc(refId).get().then(code);   
 }
 
-// for(let i=0; i<itemArray.length;i++){
-//     console.log(i)
-//     console.log(itemArray[i])
-//     queryDatabase('items',itemArray[i],function(response){
-//         data = response.data()
-//         addCartItemsToPage(data)
-//         })
-// }
 let ran = 0
 findCartItemNumbers()
 //Finds the number of items of each type
@@ -107,6 +102,7 @@ function addCartItemsToPage(data,numberOfOption){
 
 function pushToDatabase(){
     if(diffrentBox.checked){
+        console.log('Pushed')
         db.collection("users").add({
             "Billing Country": billingCountryBox.value,
             "Billing Name": billingFullNameBox.value,
@@ -119,6 +115,10 @@ function pushToDatabase(){
             "Shipping Adress Line 1": shippingAdressBox1.value,
             "Shipping Adress Line 2": shippingAdressBox2.value,
             "Shipping Zip Code": shippingZipcodeBox.value
+        })
+        .then(function(){
+            sessionStorage.clear()
+            location.replace("buy.html")
         })
     }
     else{
@@ -135,9 +135,11 @@ function pushToDatabase(){
             "Shipping Adress Line 2": billingAdressBox2.value,
             "Shipping Zip Code": billingZipcodeBox.value
         })
+        .then(function(){
+            sessionStorage.clear()
+            location.replace("buy.html")
+        })
     }
-    sessionStorage.clear()
-    location.replace("buy.html")
 }
 
 //runs when check boxes are clicked
@@ -162,3 +164,39 @@ function sameClick(){
 function returnToProducts(){
     location.replace("buy.html")
 }
+
+
+
+function checkForFilledForms(array){
+    let passedTests = 0
+    for(let i=0;i<array.length;i++){
+        let individualBox = array[i]
+        let individualBoxDiv = inputBoxDivArray[i]
+        let individualFailMsg = failMsg[i]
+        console.log(individualBox.classes)
+        //Dummy this is the problem, it skips the zipcodes bc of this dumb if statement. Check/change Conditions!!!!
+        if(individualBox.value == ''){
+            if(sameBox.checked && i==6){
+                passedTests += 4
+                break;
+            }
+            console.log(individualBox.id + ' is empty')
+            individualBox.style.backgroundColor = "#FFF2F4"
+            individualBox.style.borderLeft = '3px solid #FF4747'
+            console.log(individualBoxDiv)
+            console.log(i)
+            individualFailMsg.style.display = "block"
+        }
+        else{
+            individualBox.style.backgroundColor = "white"
+            individualBox.style.borderLeft = "0px"
+            individualFailMsg.style.display = "none"
+            passedTests ++
+            console.log('passed ' + passedTests)
+        }
+    }
+                    if(passedTests == array.length){
+                        pushToDatabase()
+                    }
+}
+

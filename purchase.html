@@ -21,14 +21,15 @@
             <div id="billingInformation">
                 <h2 style="text-align: start; color: orange; font-size:200%;">Billing Info:</h2>
                 <div id="billingContent">
-                    <div><label for="billingCountry">Country:</label> <input id="billingCountry" type="text" placeholder="Ex. United States"></div>
-                    <div><label for="billingFullName">First & Last Name:</label> <input type="text" name="billingFullName" id="billingFullName" placeholder="John Doe"></div>
-                    <div><label for="adress" >Adress:</label>
-                        <input id="billingAdress1"type="text" placeholder="Street Adress">
+                    <div class="inputDiv"><label for="billingCountry">Country:</label> <input class="inputBox" id="billingCountry" type="text" placeholder="Ex. United States"><p class="failMsg">*Please make sure form field is filled</p></div>
+                    <div class="inputDiv"><label for="billingFullName">First & Last Name:</label> <input class="inputBox" type="text" name="billingFullName" id="billingFullName" placeholder="John Doe"><p class="failMsg">*Please make sure form field is filled</p></div>
+                    <div class="inputDiv"><label for="adress" >Adress:</label>
+                        <input class="inputBox" id="billingAdress1"type="text" placeholder="Street Adress">
+                        <p class="failMsg">*Please make sure form field is filled</p>
                     </div>
                     <input id="billingAdress2"type="text" placeholder="Apt, Suite, Building">
-                    <div><label for="zipcode">Zipcode:</label><input type="number" name="" id="billingZipcode" placeholder="12345"></div>
-                    <div><label for="cardNumber">Card Number:</label> <input type="number" id="cardNumber" name="cardNumber" placeholder="12345678910"><br><br></div>
+                    <div class="inputDiv"><label for="zipcode">Zipcode:</label><input class="inputBox" type="number" name="" id="billingZipcode" placeholder="12345"><p class="failMsg">*Please make sure form field is filled</p></div>
+                    <div class="inputDiv"><label for="cardNumber">Card Number:</label> <input class="inputBox" type="number" id="cardNumber" name="cardNumber" placeholder="12345678910"><p class="failMsg">*Please make sure form field is filled</p><br><br></div>
                 </div>
             </div>
             <div id="boxes">
@@ -36,16 +37,16 @@
             <div id="shippingInformation">
                 <h2 style="text-align: start; color: orange; font-size:200%;">Shipping Info:</h2>
                 <div id="shippingContent">
-                    <div><label for="shippingCountry">Country:</label><input id="shippingCountry" type="text" placeholder="Ex. United States"></div>
-                    <div><label for="shippingFullName">First and Last Name:</label> <input type="text" name="shippingFullName" id="shippingFullName" placeholder="John Doe"></div>
-                    <div><label for="shippingadress" >Adress:</label> <input id="shippingAdress1"type="text" placeholder="Street Adress"></div>
-                    <input id="shippingAdress2"type="text" placeholder="Apt, Suite, Building">
-                    <div><label for="shippingZipcode">Zipcode:</label><input type="number" name="" id="shippingZipcode" placeholder="12345"></div>
+                    <div class="inputDiv"><label for="shippingCountry">Country:</label><input class="inputBox" id="shippingCountry" type="text" placeholder="Ex. United States"><p class="failMsg">*Please make sure form field is filled</p></div>
+                    <div class="inputDiv"><label for="shippingFullName">First and Last Name:</label> <input class="inputBox" type="text" name="shippingFullName" id="shippingFullName" placeholder="John Doe"><p class="failMsg">*Please make sure form field is filled</p></div>
+                    <div class="inputDiv"><label for="shippingadress" >Adress:</label> <input class="inputBox" id="shippingAdress1"type="text" placeholder="Street Adress"><p class="failMsg">*Please make sure form field is filled</p></div>
+                    <input  id="shippingAdress2" type="text" placeholder="Apt, Suite, Building">
+                    <div class="inputDiv"><label for="shippingZipcode">Zipcode:</label><input class="inputBox" type="number" name="" id="shippingZipcode" placeholder="12345"><p class="failMsg">*Please make sure form field is filled</p></div>
 
                 </div>
             </div>
             <div id="buttons">
-                <input type="button" value="Place Order" onclick="pushToDatabase()" class="button">
+                <input type="button" value="Place Order" onclick="checkForFilledForms(inputBoxArray)" class="button">
                 <input type="button" value = "Back" onclick="returnToProducts()" class="button">
             </div>
         </div>
@@ -85,3 +86,4 @@
         <script src="script/purchase.js"></script>
     </body>
 </html>
+
